@@ -1,4 +1,4 @@
-# JKFLIPFLOP-USING-IF-ELSE
+#EXP7:JK FLIPFLOP
 
 **AIM:** 
 
@@ -9,6 +9,8 @@ To implement  JK flipflop using verilog and validating their functionality using
 Quartus prime
 
 **THEORY**
+
+The JK Flip-Flop is a sequential circuit element that eliminates the indeterminate state of the SR Flip-Flop and supports toggling functionality. It operates with two inputs, `J` (set) and `K` (reset), along with a clock signal, producing outputs `Q` and `Q̅`. The flip-flop’s functionality is defined by its truth table, where the outputs depend on the combination of `J` and `K`. It is widely used in counters, frequency division, and shift registers.
 
 **JK Flip-Flop**
 
@@ -34,15 +36,33 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+*Program for flipflops and verify its truth table in quartus using Verilog programming.*
+
+```
+module exp7(q, qbar, j, k, clk);
+input j, k, clk; 
+output q, qbar;
+wire nand1_out;
+wire nand2_out;
+nand (nand1_out, clk, j, qbar); 
+nand (nand2_out, clk, k, q); 
+nand (q, nand1_out, qbar);
+nand (qbar, nand2_out, q);
+endmodule 
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![exp7](https://github.com/user-attachments/assets/4509ea0d-e7e2-439c-b0fb-6048e3e89a08)
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![Screenshot (34)](https://github.com/user-attachments/assets/c30a90c1-1986-44a4-b42b-80fd77c553fa)
+
 **RESULTS**
+
+Thus to implement JK flipflop using verilog and validating their functionality using their functional tables done successfully.
